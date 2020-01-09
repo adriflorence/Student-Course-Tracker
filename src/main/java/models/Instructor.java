@@ -7,8 +7,13 @@ import java.util.List;
 @Table(name = "instructors")
 public class Instructor {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "name")
     private String name;
+
     private List<Lesson> lessons;
 
     public Instructor() {

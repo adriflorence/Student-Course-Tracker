@@ -7,16 +7,9 @@ import java.util.Calendar;
 @Table(name="lessons")
 public class Lesson {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
-    @Column(name="title")
     private String title;
-
-    @Column(name="classroom")
     private int classroom;
-    
     private Calendar date;
     private Course course;
     private Instructor instructor;
@@ -32,4 +25,35 @@ public class Lesson {
         this.instructor = instructor;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    public int getId() {
+        return id;
+    }
+
+    @Column(name="title")
+    public String getTitle() {
+        return title;
+    }
+
+    @Column(name="classroom_number")
+    public int getClassroom() {
+        return classroom;
+    }
+
+    @Column(name = "date")
+    public Calendar getDate() {
+        return date;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="course_id", nullable = false)
+    public Course getCourse() {
+        return course;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
 }
