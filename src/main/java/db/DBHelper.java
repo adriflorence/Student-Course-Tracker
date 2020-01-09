@@ -5,6 +5,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 public class DBHelper {
@@ -30,7 +32,10 @@ public class DBHelper {
         session = HibernateUtil.getSessionFactory().openSession();
         List<T> results = null;
         try {
-            results = session.createQuery("select * " + classType, classType).list();
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<T> criteria = builder.createQuery(classType);
+            criteria.from(classType);
+            results = session.createQuery(criteria).list();
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {

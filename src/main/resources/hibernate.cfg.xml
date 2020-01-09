@@ -16,6 +16,6 @@
         <mapping class = "models.Course"/>
         <mapping class = "models.Lesson"/>
         <mapping class = "models.Student"/>
-        <mapping class = "models.Level"/>
+        <mapping class = "models.Qualification"/>
     </session-factory>
 </hibernate-configuration>
