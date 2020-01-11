@@ -52,5 +52,35 @@ public class Student {
         return enrolmentNumber;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    public Course getCourse() {
+        return course;
+    }
 
+    // SETTERS
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setEnrolmentNumber(int enrolmentNumber) {
+        this.enrolmentNumber = enrolmentNumber;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 }

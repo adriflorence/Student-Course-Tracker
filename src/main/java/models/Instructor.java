@@ -7,13 +7,8 @@ import java.util.List;
 @Table(name = "instructors")
 public class Instructor {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
-    @Column(name = "name")
     private String name;
-
     private List<Lesson> lessons;
 
     public Instructor() {
@@ -23,8 +18,9 @@ public class Instructor {
         this.name = name;
     }
 
+    // GETTERS
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     public int getId() {
         return id;
@@ -35,8 +31,21 @@ public class Instructor {
         return name;
     }
 
-    @OneToMany(mappedBy = "instructor", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "instructor", fetch = FetchType.LAZY)
     public List<Lesson> getLessons() {
         return lessons;
+    }
+
+    // SETTERS
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLessons(List<Lesson> lessons) {
+        this.lessons = lessons;
     }
 }

@@ -37,8 +37,6 @@ public class Course {
         return qualification;
     }
 
-    // FetchType.EAGER: fetching gets all the relationships for given course (uses a lot of memory)
-    // mappedBy: points back to Student class' course instance variable
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     public List<Student> getStudents() {
         return students;
@@ -47,5 +45,25 @@ public class Course {
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     public List<Lesson> getLessons() {
         return lessons;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setQualification(Qualification qualification) {
+        this.qualification = qualification;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    public void setLessons(List<Lesson> lessons) {
+        this.lessons = lessons;
     }
 }

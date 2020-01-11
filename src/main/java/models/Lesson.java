@@ -53,7 +53,34 @@ public class Lesson {
         return course;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "instructor_id", nullable = false)
     public Instructor getInstructor() {
         return instructor;
+    }
+
+    // SETTERS
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setClassroom(int classroom) {
+        this.classroom = classroom;
+    }
+
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 }
