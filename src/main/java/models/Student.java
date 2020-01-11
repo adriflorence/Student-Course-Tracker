@@ -15,8 +15,7 @@ public class Student {
 
     public Student(){}
 
-    public Student(int id, String firstName, String lastName, int age, int enrolmentNumber, Course course) {
-        this.id = id;
+    public Student(String firstName, String lastName, int age, int enrolmentNumber, Course course) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -82,5 +81,10 @@ public class Student {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(firstName + " " + lastName);
     }
 }
